@@ -13,6 +13,7 @@ let array = [imgScissor, imgPaper, imgRock];
 let victory = 0;
 let defaite = 0;
 let draw = 0;
+let game = 0;
 
 score.innerHTML = "Victoire joueur: " + victory + "<br>" + "Victoire ordinateur: " + defaite + "<br>" + "Egalité: " + draw;
 
@@ -52,18 +53,22 @@ function img(image) {
     playerImg.src = image;
     iaImg.src = array[random];
     win(image, array[random]);
+
 }
 
 function win(player, choice) {
-    console.log(player)
+    game++;
     if (choice === player) {
         draw++;
+        resume.innerHTML += "Round " + game + ": " + "Egalité" + "<br>";
     }
     else if((player === imgScissor && choice === imgRock) || (player === imgRock && choice === imgPaper) || (player === imgPaper && choice === imgScissor)) {
         defaite++
+        resume.innerHTML += "Round " + game + ": " + "Défaite" + "<br>";
     }
     else {
         victory++
+        resume.innerHTML += "Round " + game + ": " + "Victoire" + "<br>";
     }
     score.innerHTML = "Victoire joueur: " + victory + "<br>" + "Victoire ordinateur: " + defaite + "<br>" + "Egalité: " + draw;
 }
