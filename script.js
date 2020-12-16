@@ -44,10 +44,12 @@ function img(image) {
     let playerImg = document.createElement("img");
     let iaImg = document.createElement("img");
     let random = Math.trunc(Math.random()*3)
-    playerImg.style.backgroundSize = "cover";
-    playerImg.style.width = "80%";
-    iaImg.style.backgroundSize = "cover";
-    iaImg.style.width = "80%";
+
+    playerImg.style.width = "100%";
+    playerImg.style.height = "100%";
+
+    iaImg.style.width = "100%";
+    iaImg.style.height = "100%";
     player.append(playerImg);
     ia.append(iaImg);
     playerImg.src = image;
